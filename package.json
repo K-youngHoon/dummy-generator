@@ -1,0 +1,32 @@
+{
+  "name": "nodejs-file-generator",
+  "version": "1.0.0",
+  "main": "generator.js",
+  "scripts": {
+    "package": "pkg ."
+  },
+  "pkg": {
+    "scripts": "generator.js",
+    "targets": [
+      "node18-win-x64"
+    ],
+    "outputPath": "dist"
+  },
+  "license": "ISC",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/K-youngHoon/dummy-generator.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/K-youngHoon/dummy-generator/issues"
+  },
+  "homepage": "https://github.com/K-youngHoon/dummy-generator#readme",
+  "dependencies": {
+    "exceljs": "^4.4.0",
+    "inquirer": "^13.0.2",
+    "jimp": "^1.6.0",
+    "pkg": "^5.8.1"
+  }
+}
