@@ -185,6 +185,7 @@ async function main() {
       format: ext.toLowerCase(),
     };
   }
+  const baseDir = "C:\\Users\\user\\Desktop";
 
   // 생성 루프
   for (let i = 1; i <= count; i++) {
@@ -193,7 +194,7 @@ async function main() {
       : count === 1
       ? filenameTemplate
       : `${filenameTemplate}${i}`;
-    const outPath = path.resolve(`${fname}.${ext}`);
+    const outPath = path.join(baseDir, `${fname}.${ext}`);
     console.log(`-> 생성중: ${outPath} (목표: ${sizeBytes} bytes)`);
 
     try {
