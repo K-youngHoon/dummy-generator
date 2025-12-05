@@ -3,12 +3,18 @@
   "version": "1.0.0",
   "main": "generator.js",
   "scripts": {
-    "package": "pkg ."
+    "package": "pkg .",
+    "build": "pkg dummygen.js --targets node18-win-x64",
+    "start": "node dummygen.js"
   },
   "pkg": {
     "scripts": "generator.js",
     "targets": [
       "node18-win-x64"
+    ],
+    "assets": [
+      "node_modules/sharp/build/Release/*",
+      "node_modules/sharp/vendor/lib/*"
     ],
     "outputPath": "dist"
   },
@@ -25,8 +31,8 @@
   "homepage": "https://github.com/K-youngHoon/dummy-generator#readme",
   "dependencies": {
     "exceljs": "^4.4.0",
-    "inquirer": "^13.0.2",
-    "jimp": "^1.6.0",
-    "pkg": "^5.8.1"
+    "inquirer": "^8.2.7",
+    "pkg": "^5.8.1",
+    "sharp": "^0.34.5"
   }
 }
