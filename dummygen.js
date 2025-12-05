@@ -16,7 +16,7 @@
 const fs = require("fs");
 const path = require("path");
 const inquirer = require("inquirer");
-const sharp = require("sharp");
+const Jimp = require("jimp");
 const ExcelJS = require("exceljs");
 const crypto = require("crypto");
 
@@ -90,29 +90,19 @@ async function createRawFile(filePath, sizeBytes) {
 
 async function createWhiteImage(filePath, width, height, format) {
   try {
-    let outputFormat = format.toLowerCase();
-
-    const backgroundColor = { r: 255, g: 255, b: 255, alpha: 1 };
-
-    let img = sharp({
-      create: {
-        width,
-        height,
-        channels: 4,
-        background: backgroundColor,
-      },
+    const image = new Jimp.Jimp({
+      width,
+      height,
+      color: "#ffffffff", // 흰색 배경
     });
 
-    // JPG 품질 설정
-    if (outputFormat === "jpg" || outputFormat === "jpeg") {
-      img = img.jpeg({ quality: 90 });
-    }
-
-    await img.toFile(filePath);
+    image.write(filePath);
 
     console.log(`이미지 저장 성공: ${filePath}`);
   } catch (err) {
+    // Jimp.create 또는 writeAsync에서 발생한 오류를 여기서 처리합니다.
     console.error("이미지 처리 중 오류 발생:", err);
+    // 오류를 다시 throw하여 이 함수를 호출한 곳에서 catch할 수 있도록 합니다.
     throw new Error(`이미지 저장 실패: ${err.message}`);
   }
 }
@@ -154,7 +144,7 @@ async function main() {
     {
       name: "filename",
       message:
-        "파일명 (확장자 제외). 여러개 생성하려면 {n} 사용 (예: dummy{n}). 단일이면 그냥 name 입력:",
+        "파일명 여러개 생성하려면 {n} 추가 (예: dummy{n}) 아닐땐 파일명만",
       default: "dummy{n}",
     },
     {

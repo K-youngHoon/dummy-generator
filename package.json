@@ -3,20 +3,8 @@
   "version": "1.0.0",
   "main": "generator.js",
   "scripts": {
-    "package": "pkg .",
-    "build": "pkg dummygen.js --targets node18-win-x64",
+    "build": "nexe dummygen.js -t windows-x64-20.5.0 --build",
     "start": "node dummygen.js"
-  },
-  "pkg": {
-    "scripts": "generator.js",
-    "targets": [
-      "node18-win-x64"
-    ],
-    "assets": [
-      "node_modules/sharp/build/Release/*",
-      "node_modules/sharp/vendor/lib/*"
-    ],
-    "outputPath": "dist"
   },
   "license": "ISC",
   "description": "",
@@ -32,7 +20,7 @@
   "dependencies": {
     "exceljs": "^4.4.0",
     "inquirer": "^8.2.7",
-    "pkg": "^5.8.1",
+    "jimp": "^1.6.0",
     "sharp": "^0.34.5"
   }
 }
