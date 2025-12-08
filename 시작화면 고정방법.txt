@@ -1,0 +1,9 @@
+Win + R → shell:programs → Enter
+
+오른쪽 클릭 > 바로가기 만들기 > 
+
+wscript.exe "C:\Users\user\Documents\git\dummy-generator\generator.vbs" 입력
+
+이름 설정
+
+

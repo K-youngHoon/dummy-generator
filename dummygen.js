@@ -143,9 +143,8 @@ async function main() {
     },
     {
       name: "filename",
-      message:
-        "파일명 여러개 생성하려면 {n} 추가 (예: dummy{n}) 아닐땐 파일명만",
-      default: "dummy{n}",
+      message: "파일명",
+      default: "dummy",
     },
     {
       name: "count",
